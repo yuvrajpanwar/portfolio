@@ -38,4 +38,32 @@
   $contact->add_message( $_POST['message'], 'Message', 10);
 
   echo $contact->send();
+
+
+  class Stack {
+
+    public $values = [];
+
+    function push($element){
+      $values[] = $element;
+    }
+
+    function pop(){
+       array_pop($values);
+    }
+    function peek(){
+      return $this->values[ count($this->values)-1 ];
+    }
+    function isEmpty(){
+      return count($this->values)==0;
+    }
+  }
+
+
+
+
+
+
+
+
 ?>
