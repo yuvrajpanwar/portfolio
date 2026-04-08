@@ -1257,6 +1257,7 @@
   let isWaiting     = false;
   let greetingDone  = false;
   let confirmActive = false;
+  let sessionToken  = localStorage.getItem('uv_chat_session') ?? null;
 
   // ── Helpers ───────────────────────────────────────────────
   function getTime() {
@@ -1366,8 +1367,7 @@
         headers: {
           'Accept':           'application/json',
           'X-Requested-With': 'XMLHttpRequest',
-        },
-        credentials: 'same-origin',
+        }
       });
 
       if (!res.ok) return;
@@ -1400,15 +1400,19 @@
 
     try {
       await fetch(RESET_ENDPOINT, {
-        method:  'POST',
-        headers: {
-          'Content-Type':     'application/json',
-          'Accept':           'application/json',
-          'X-CSRF-TOKEN':     CSRF_TOKEN,
-          'X-Requested-With': 'XMLHttpRequest',
-        },
-        credentials: 'same-origin',
+          method:  'POST',
+          headers: {
+              'Content-Type':     'application/json',
+              'Accept':           'application/json',
+              'X-Requested-With': 'XMLHttpRequest',
+              'X-Chat-Session':   sessionToken ?? '',   // ← add this
+          },
+          // credentials: 'same-origin',   ← remove this line
       });
+
+      // ← add these two lines after the fetch (before UI clear)
+      sessionToken = null;
+      localStorage.removeItem('uv_chat_session');
     } catch (err) {
       console.warn('[UV Chatbot] Reset request failed:', err);
     }
@@ -1463,18 +1467,24 @@
 
     try {
       const response = await fetch(ENDPOINT, {
-        method:  'POST',
-        headers: {
-          'Content-Type':     'application/json',
-          'Accept':           'application/json',
-          'X-CSRF-TOKEN':     CSRF_TOKEN,
-          'X-Requested-With': 'XMLHttpRequest',
-        },
-        credentials: 'same-origin',
-        body: JSON.stringify({ message: text }),
+          method:  'POST',
+          headers: {
+              'Content-Type':     'application/json',
+              'Accept':           'application/json',
+              'X-Requested-With': 'XMLHttpRequest',
+              'X-Chat-Session':   sessionToken ?? '',   // ← add this
+          },
+          // credentials: 'same-origin',   ← remove this line
+          body: JSON.stringify({ message: text }),
       });
 
       const data = await response.json();
+
+      // ← add this block
+      if (data.session_token) {
+          sessionToken = data.session_token;
+          localStorage.setItem('uv_chat_session', sessionToken);
+      }
       hideTyping();
 
       if (!response.ok) {
