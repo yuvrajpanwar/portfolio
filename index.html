@@ -1361,37 +1361,40 @@
   }
 
   // ── History restore ───────────────────────────────────────
-  async function restoreHistory() {
-    try {
-      const res  = await fetch(HISTORY_ENDPOINT, {
-        headers: {
-          'Accept':           'application/json',
-          'X-Requested-With': 'XMLHttpRequest',
-        }
-      });
-
-      if (!res.ok) return;
-
-      const data = await res.json();
-      const messages = data.messages ?? [];
-
-      if (messages.length === 0) return;
-
-      // Mark greeting as done so openChat() doesn't append it again
-      greetingDone = true;
-
-      insertDivider('Previous conversation');
-
-      messages.forEach(msg => {
-        const who = msg.role === 'assistant' ? 'ai' : 'user';
-        appendMessage(who, msg.content, formatTime(msg.sent_at), true);
-      });
-
-    } catch (err) {
-      // Silently fail — user just won't see old messages
-      console.warn('[UV Chatbot] History restore failed:', err);
-    }
+ async function restoreHistory() {
+  if (!sessionToken) {
+    // No session yet → nothing to restore
+    return;
   }
+
+  try {
+    const res = await fetch(HISTORY_ENDPOINT, {
+      headers: {
+        'Accept':           'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-Chat-Session':   sessionToken,        // ← THIS WAS MISSING
+      }
+    });
+
+    if (!res.ok) return;
+
+    const data = await res.json();
+    const messages = data.messages ?? [];
+
+    if (messages.length === 0) return;
+
+    greetingDone = true;
+    insertDivider('Previous conversation');
+
+    messages.forEach(msg => {
+      const who = msg.role === 'assistant' ? 'ai' : 'user';
+      appendMessage(who, msg.content, formatTime(msg.sent_at), true);
+    });
+
+  } catch (err) {
+    console.warn('[UV Chatbot] History restore failed:', err);
+  }
+}
 
   // ── Reset session ─────────────────────────────────────────
   async function resetSession() {
