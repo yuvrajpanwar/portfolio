@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
   <title>Yuvraj Panwar</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
   <!-- Favicons -->
   <link href="assets/img/finalfevicon.png" rel="icon">
   <link href="assets/img/finalfevicon.png" rel="apple-touch-icon">
-
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
     rel="stylesheet">
-
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,1139 +18,830 @@
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/chatbot.css" rel="stylesheet">
+  <style>
+    /* Desktop — keep existing hero-bg (already set in your main CSS, no change needed) */
 
-  <!-- =======================================================
-  * Template Name: iPortfolio
-  * Updated: Jan 09 2024 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+/* Mobile — swap to hero-bg-mobile.jpeg */
+@media (max-width: 768px) {
+  #hero {
+    background-image: url("assets/img/hero-bg-mobile.jpeg") !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    background-attachment: scroll !important;
+  }
+}
+  </style>
 </head>
 
 <body>
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+  <!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  ENHANCED PORTFOLIO — DROP-IN REPLACEMENT                       ║
+  ║  Replace the entire <body> content of your index.html with this ║
+  ╚══════════════════════════════════════════════════════════════════╝
 
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="d-flex flex-column">
+  CHANGES MADE (non-breaking, layout/content preserved):
+  ─────────────────────────────────────────────────────
+  1.  cursor:pointer on all clickable portfolio-wrap divs & social links
+  2.  Resume "here" link underlined + styled for attention
+  3.  All <img> tags get loading="lazy" (except hero profile)
+  4.  Hero section: CSS uses background-size + media query for mobile
+  5.  Projects without live link → click triggers a friendly popup modal
+      (Daily Shop & Easy GST) linking to GitHub
+  6.  Hover lift effect on project cards (transform translateY)
+  7.  Smooth scroll polyfill already present via Bootstrap/existing CSS;
+      added scroll-behavior:smooth on html just in case
+  8.  Active nav link highlight fixed for scroll-spy (existing JS handles
+      this; added a tiny CSS nudge for the active state visibility)
+  9.  Footer copyright year updated to 2025
+  10. "Currently looking for opportunities" badge added in About section
+  11. Skill bars now animate on scroll via Intersection Observer
+  12. Social icon tooltips (title attributes already present, enhanced)
+  13. Contact info items get cursor:pointer + subtle hover
+  14. Meta description added for SEO
+-->
 
-      <div class="profile">
-        <a href="assets/img/profile-img.jpg" data-gallery="profile-img" class="portfolio-lightbox">
-          <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle"></a>
-        <h1 class="text-light">Yuvraj Panwar</h1>
-        <div class="social-links mt-3 text-center">
-          <a href="https://github.com/yuvrajpanwar" target="_blank" class="instagram"><i class="bx bxl-github"></i></a>
-          <a href="https://www.linkedin.com/in/yuvraj-singh-panwar-a9a590278/" target="_blank" class="linkedin"><i
-              class="bx bxl-linkedin"></i></a>
-          <a href="https://wa.me/8126935236" target="_blank" rel="noopener noreferrer" class="google-plus"><i
-              class="bx bxl-whatsapp"></i></a>
-        </div>
+<!-- ======= Mobile nav toggle button ======= -->
+<i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+<!-- ======= Header ======= -->
+<header id="header">
+  <div class="d-flex flex-column">
+
+    <div class="profile">
+      <a href="assets/img/uv.jpg" data-gallery="profile-img" class="portfolio-lightbox">
+        <img src="assets/img/uv.jpg" alt="Yuvraj Panwar" class="img-fluid rounded-circle">
+      </a>
+      <h1 class="text-light">Yuvraj Panwar</h1>
+      <div class="social-links mt-3 text-center">
+        <a href="https://github.com/yuvrajpanwar" target="_blank" class="instagram" title="GitHub Profile" style="cursor:pointer;">
+          <i class="bx bxl-github"></i></a>
+        <a href="https://www.linkedin.com/in/yuvraj-singh-panwar-a9a590278/" target="_blank" class="linkedin" title="LinkedIn Profile" style="cursor:pointer;">
+          <i class="bx bxl-linkedin"></i></a>
+        <a href="https://wa.me/8126935236" target="_blank" rel="noopener noreferrer" class="google-plus" title="WhatsApp" style="cursor:pointer;">
+          <i class="bx bxl-whatsapp"></i></a>
+
+        <!-- 4th icon: open UV chat -->
+        <a href="javascript:void(0)" onclick="document.getElementById('uv-fab').click()"
+          class="google-plus" title="Chat with UV" style="cursor:pointer;">
+          <i class="bx bx-message-rounded-dots"></i></a>
       </div>
-
-      <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i>
-              <span>Projects</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-        </ul>
-      </nav><!-- .nav-menu -->
     </div>
-  </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Hi, I'm <span>Yuvraj.</span></h1>
-      <p>I'm a <span class="typed h2" data-typed-items="Full Stack Developer
-        , Coding Enthusiast
-        , Learner
-        "></span></p>
-    </div>
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>About</h2>
-          <p>I'm passionate about crafting experiences that are engaging, accessible, and user-centric. I enjoy applying
-            my skills to my projects. I care deeply about building interfaces that are usable and pleasant for the most
-            number of people possible.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <a href="assets/img/standing.jpg" data-gallery="standing" class="portfolio-lightbox">
-              <img src="assets/img/standing.jpg" class="img-fluid" style="border-radius: 3%;"></a>
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Full Stack Developer</h3>
-            <p class="fst-italic">
-              I was working as a Software Developer at 'NetDomains Pvt Ltd' in Bengaluru, Karnataka.<br>
-              I'm currently looking for new opportunities.
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Worked at:</strong> <span>NetDomains Pvt Ltd</span>
-                  </li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Worked on :</strong> <span>10+ live projects</span>
-                  </li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>yogipanwar173@gmail.com</span>
-                  </li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>8126935236</span></li>
-
-                </ul>
-              </div>
-
-            </div>
-            <p>
-              Successfully contributed to the completion of over 10 live projects in the field of web development,
-              demonstrating a proven ability to translate theoretical knowledge into real-world solutions.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Skills</h2>
-        </div>
-
-        <div class="row skills-content mb-3">
-
-          <div class="col-lg-6" data-aos="fade-up">
-
-            <div class="progress">
-              <span class="skill">HTML </span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">CSS </span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Bootstrap </span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">JavaScript </span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">JQUERY </span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="progress">
-              <span class="skill">PHP </span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Laravel </span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">Codeigniter </span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">MYSQL </span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-            <div class="progress">
-              <span class="skill">GIT </span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-        <p>In addition to the above-mentioned skills, I am consistently dedicated to expanding my knowledge in the field
-          of web development by actively acquiring new skills and staying abreast of industry trends.</p>
-
-      </div>
-    </section><!-- End Skills Section -->
-
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Resume</h2>
-          <p>You can download my resume from <a target="_blank" href="./assets/Yuvraj-Panwar-Resume.pdf" style="font-size: larger;"
-              download>here</a>.</p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Summary</h3>
-            <div class="resume-item pb-0">
-              <h4>Yuvraj Singh Panwar</h4>
-              <ul>
-                <li><i style="margin-right: .5rem;" class=" bi bi-geo-alt"></i>Dehradun, Uttarakhand, India</li>
-                <li><i style="margin-right: .5rem;" class=" bi bi-phone"></i> 8126935236</li>
-                <li><i style="margin-right: .5rem;" class=" bi bi-envelope"></i> yogipanwar173@gmail.com</li>
-              </ul>
-            </div>
-
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Master Of Computer Applications</h4>
-              <h5>2023&nbsp; (80%)</h5>
-              <p class="m-0"><em>
-                  Shri Guru Ram Rai University,Dehradun
-                </em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Bachelor Of Computer Applications</h4>
-              <h5>2020&nbsp; (70%)</h5>
-              <p class="m-0"><em>Uttarakhand Technical University</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Intermediate (12th)</h4>
-              <h5>2017&nbsp; (74%)</h5>
-              <p class="m-0"><em>Govt Inter College Gadora,Uttarakhand Board</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>High School</h4>
-              <h5>2015&nbsp; (77%)</h5>
-              <p class="m-0"><em>Govt Inter College Gadora,Uttarakhand Board</em></p>
-            </div>
-
-
-          </div>
-
-
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Professional Experience</h3>
-            <div class="resume-item">
-              <h4>Software Developer</h4>
-              <h5>June(2024) - April(2025)</h5>
-              <p><em>NetDomains Pvt Ltd, Bengaluru, Karnataka </em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Software Developer</h4>
-              <h5>June(2023) - February(2024)</h5>
-              <p><em>World IT Dimensional Solutions, Dehradun, Uttarakhand </em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Experience with Large-scale Projects:
-              </h4>
-              Worked on complex projects including:
-              <ul class="mt-2">
-                <li>World Consumer Club (Paid Membership Program)</li>
-                <li>Flare Up Sky (Targeted Ad Platform for Businesses)</li>
-                <li>Learning Management System (LMS)</li>
-                <li>Real-Time Emergency Alert System</li>
-                <li>E-commerce Platform</li>
-                <li>News Websites</li>
-                <li>Customer Relationship Management (CRM) Software</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Resume Section -->
-
-    <!-- ======= Projects Section ======= -->
-    <section id="portfolio" class="portfolio section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Projects</h2>
-          <p>Below are some of the projects I've worked on:</p>
-        </div>
-
-
-
-        <div >
-
-
-          <div class="row">
-
-            <div class="col-lg-4 col-md-6  mt-4">
-              <h5>World Consumer Club</h5>
-
-              <div class="portfolio-wrap"
-                style="height: 220px;display: flex; justify-content: center; align-items: center;background: white;">
-                <img src="assets/img/worldconsumerclub.png"
-                  style="object-fit: contain;max-width: 100%;max-height: 100%;" alt="">
-                <div class="portfolio-links">
-                  <a href="https://worldconsumerclub.com" target="_blank" title="More Details" style="width: 100%;"><i
-                      class="bx bx-link"></i></a>
-                </div>
-              </div>
-              <ul>
-                <li>Paid Membership Program.</li>
-                <li>Payment Gateway integration.</li>
-                <li>Admin Panel for managing members and payments.</li>
-                <li>Build with Laravel and MySQL.</li>
-              </ul>
-            </div>
-
-            <div class="col-lg-4 col-md-6  mt-4">
-              <h5>Flare Up Sky</h5>
-              <div class="portfolio-wrap"
-                style="height: 220px;display: flex; justify-content: center; align-items: center;background: white;">
-                <img src="assets/img/flareupsky.png" style="object-fit: contain;max-width: 100%;max-height: 100%;"
-                  alt="">
-                <div class="portfolio-links">
-                  <a href="https://flareupsky.com" target="_blank" title="More Details" style="width: 100%;"><i
-                      class="bx bx-link"></i></a>
-                </div>
-              </div>
-              <ul>
-                <li>Targeted Ad Platform for Businesses.</li>
-                <li>Payment Gateway integration</li>
-                <li>Admin Panel for managing ads and businesses.</li>
-                <li>Build with Laravel and MySQL.</li>
-              </ul>
-            </div>
-
-            <div class="col-lg-4 col-md-6  mt-4">
-              <h5>2<sup>nd</sup> Alarm Project</h5>
-              <div class="portfolio-wrap"
-                style="height: 220px;display: flex; justify-content: center; align-items: center;background: red;">
-                <img src="assets/img/lms.svg" style="object-fit: contain;max-width: 100%;max-height: 100%;" alt="">
-                <div class="portfolio-links">
-                  <a href="https://lms.2apcontacts.org/" target="_blank" title="More Details" style="width: 100%;"><i
-                      class="bx bx-link"></i></a>
-                </div>
-              </div>
-              <ul>
-                <li>A Learning Management System for first responders of Florida.</li>
-                <li>Enroll to courses and Progress Status are key features.</li>
-                <li>Build with Codeigniter and MySQL</li>
-              </ul>
-            </div>
-
-          </div>
-
-          <div class="row">
-
-            <div class="col-lg-4 col-md-6 mt-4 pt-4 ">
-              <h5>Ease Alert</h5>
-              <div class="portfolio-wrap"
-                style="height: 220px;display: flex; justify-content: center; align-items: center;background: white;">
-                <img src="https://events.easealert.com/public/assets/image/logo.png"
-                  style="object-fit: contain;max-width: 100%;max-height: 100%;" alt="">
-                <div class="portfolio-links">
-                  <a href="https://events.easealert.com" target="_blank" title="More Details" style="width: 100%;"><i
-                      class="bx bx-link"></i></a>
-                </div>
-              </div>
-              <ul>
-                <li>Real-Time emergency alert system .</li>
-                <li>Web-sockets for real time notification.</li>
-                <li>Admin panel and role-based access control for different user types.</li>
-                <li>build with Laravel and MySQL .</li>
-              </ul>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mt-4 pt-4 ">
-              <h5>Daily Shop</h5>
-              <div 
-                style="height: 220px;display: flex; justify-content: center; align-items: center;background: white;">
-                <img src="./assets/img/logo.jpg" style="object-fit: contain;max-width: 100%;max-height: 100%;" alt="">                
-              </div>
-              <ul>
-                <li>E-commerce website build with Laravel and MySQL.</li>
-                <li>Payment Gateway integration.</li>
-                <li>Feature of Cart and Favourite items.</li>
-                <li>Guest checkout and register user checkout.</li>
-              </ul>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mt-4 pt-4 ">
-              <h5>Easy GST</h5>
-              <div 
-                style="height: 220px;display: flex; justify-content: center; align-items: center;background: white;">
-                <img src="./assets/img/1.png" style="object-fit: contain;max-width: 100%;max-height: 100%;" alt="">
-                
-              </div>
-              <ul>
-                <li>A CRM system build with Laravel and MySQL.</li>
-                <li>
-                  Invoice generation, products management , order and stock
-                  management , Monthly report, yearly report, Daily Report.</li>
-              </ul>
-            </div>
-
-          </div>
-
-          <div class="row">
-
-            <div class="col-lg-4 col-md-6 mt-4 pt-4">
-              <h5>Khabri Kaka</h5>
-              <div class="portfolio-wrap"
-                style="height: 220px;display: flex; justify-content: center; align-items: center;background: white;">
-                <img src="https://khabrikaka.com/assets/img/logo-white.webp"
-                  style="object-fit: contain;max-width: 100%;max-height: 100%;">
-                <div class="portfolio-links">
-                  <a href="https://khabrikaka.com/" target="_blank" title="More Details" style="width: 100%;"><i
-                      class="bx bx-link"></i></a>
-                </div>
-              </div>
-              <ul>
-                <li>Html, Css, Javascript, Bootstrap is used for frontend .
-                </li>
-                <li>Core Php, MySQL is used for Backend.</li>
-              </ul>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mt-4 pt-4">
-              <h5>Uttaranchal Royal</h5>
-              <div class="portfolio-wrap"
-                style="height: 220px;display: flex; justify-content: center; align-items: center;background: white;">
-                <img src="https://www.uttaranchalroyal.com/assets/img/logo.png"
-                  style="object-fit: contain;max-width: 100%;max-height: 100%;" alt="">
-                <div class="portfolio-links">
-                  <a href="https://www.uttaranchalroyal.com" target="_blank" title="More Details"
-                    style="width: 100%;"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-              <ul>
-                <li>Html, Css, Javascript, Bootstrap is used for frontend .</li>
-                <li>Core Php, MySQL is used for Backend.</li>
-              </ul>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mt-4 pt-4">
-              <h5>Comming Soon...</h5>
-              <div class=""
-                style="height: 220px;display: flex; justify-content: center; align-items: center;background: white;">
-                <img src="assets/img/comingsoon.jpg"
-                  style="object-fit: contain;max-width: 100%;max-height: 100%;" alt="">
-              </div>
-              <ul>
-                <li>More projects are in development and will be added soon.</li>
-                <li>Stay tuned for updates on my latest work!</li>
-              </ul>
-            </div>
-
-          </div>
-
-
-        </div>
-
-      </div>
-    </section><!-- End Projects Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>Feel free to contact me anytime .</p>
-        </div>
-
-        <div class="row" data-aos="fade-in">
-
-          <div class="col-lg-5 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>Dehradun, Uttarakhand, India</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>yogipanwar173@gmail.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>8126935236</p>
-              </div>
-
-            </div>
-
-          </div>
-
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
+    <nav id="navbar" class="nav-menu navbar">
+      <ul>
+        <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+        <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+        <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Projects</span></a></li>
+        <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+  <div class="hero-container" data-aos="fade-in">
+    <h1>Hi, I'm <span>Yuvraj.</span></h1>
+    <p>I'm a <span class="typed h2" data-typed-items="Full Stack Developer, Coding Enthusiast, Learner"></span></p>
+  </div>
+</section>
+
+<main id="main">
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
     <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Yuvraj 2024</span></strong>
+
+      <div class="section-title">
+        <h2>About</h2>
+        <p>I'm passionate about crafting experiences that are engaging, accessible, and user-centric. I enjoy applying
+          my skills to my projects. I care deeply about building interfaces that are usable and pleasant for the most
+          number of people possible.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4" data-aos="fade-right">
+          <a href="assets/img/standing.jpg" data-gallery="standing" class="portfolio-lightbox" style="cursor:pointer;">
+            <img src="assets/img/standing.jpg" loading="lazy" class="img-fluid" style="border-radius: 3%;" alt="Yuvraj Panwar">
+          </a>
+        </div>
+        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+          <h3>Full Stack Developer</h3>
+
+          <!-- ✅ Enhancement: "Open to work" badge -->
+          <p class="fst-italic">
+            I was working as a Software Developer at 'NetDomains Pvt Ltd' in Bengaluru, Karnataka.<br>
+            <span style="display:inline-flex;align-items:center;gap:6px;margin-top:6px;
+                         background:#d1fae5;color:#065f46;padding:4px 12px;
+                         border-radius:20px;font-size:0.85rem;font-weight:600;font-style:normal;">
+              <span style="width:8px;height:8px;background:#10b981;border-radius:50%;display:inline-block;
+                           animation:pulse-dot 1.8s ease-in-out infinite;"></span>
+              Open to new opportunities
+            </span>
+          </p>
+
+          <div class="row">
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>Worked at:</strong> <span>NetDomains Pvt Ltd</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Worked on:</strong> <span>10+ live projects</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong>
+                  <span><a href="mailto:yogipanwar173@gmail.com" style="color:inherit;text-decoration:underline dotted;cursor:pointer;">yogipanwar173@gmail.com</a></span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong>
+                  <span><a href="tel:8126935236" style="color:inherit;text-decoration:none;cursor:pointer;">8126935236</a></span></li>
+              </ul>
+            </div>
+          </div>
+          <p>
+            Successfully contributed to the completion of over 10 live projects in the field of web development,
+            demonstrating a proven ability to translate theoretical knowledge into real-world solutions.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======= Skills Section ======= -->
+  <section id="skills" class="skills section-bg">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Skills</h2>
+      </div>
+
+      <div class="row skills-content mb-3">
+
+        <div class="col-lg-6" data-aos="fade-up">
+          <div class="progress">
+            <span class="skill">HTML </span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress">
+            <span class="skill">CSS </span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress">
+            <span class="skill">Bootstrap </span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress">
+            <span class="skill">JavaScript </span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress">
+            <span class="skill">JQUERY </span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="progress">
+            <span class="skill">PHP </span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress">
+            <span class="skill">Laravel </span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress">
+            <span class="skill">Codeigniter </span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress">
+            <span class="skill">MYSQL </span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <div class="progress">
+            <span class="skill">GIT </span>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p>In addition to the above-mentioned skills, I am consistently dedicated to expanding my knowledge in the field
+        of web development by actively acquiring new skills and staying abreast of industry trends.</p>
+
+    </div>
+  </section>
+
+  <!-- ======= Resume Section ======= -->
+  <section id="resume" class="resume">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Resume</h2>
+        <!-- ✅ Enhancement: "here" is now visually distinct -->
+        <p>You can download my resume from
+          <a target="_blank" href="assets/Yuvraj-Panwar-Resume.pdf" download
+             style="font-size:larger; font-weight:700; text-decoration:underline;
+                    text-underline-offset:3px; color:#149ddd; cursor:pointer;"
+             title="Download Resume PDF">here ↓</a>.
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6" data-aos="fade-up">
+          <h3 class="resume-title">Summary</h3>
+          <div class="resume-item pb-0">
+            <h4>Yuvraj Singh Panwar</h4>
+            <ul>
+              <li><i style="margin-right:.5rem;" class="bi bi-geo-alt"></i>Dehradun, Uttarakhand, India</li>
+              <li><i style="margin-right:.5rem;" class="bi bi-phone"></i> 8126935236</li>
+              <li><i style="margin-right:.5rem;" class="bi bi-envelope"></i> yogipanwar173@gmail.com</li>
+            </ul>
+          </div>
+
+          <h3 class="resume-title">Education</h3>
+          <div class="resume-item">
+            <h4>Master Of Computer Applications</h4>
+            <h5>2023&nbsp; (80%)</h5>
+            <p class="m-0"><em>Shri Guru Ram Rai University, Dehradun</em></p>
+          </div>
+          <div class="resume-item">
+            <h4>Bachelor Of Computer Applications</h4>
+            <h5>2020&nbsp; (70%)</h5>
+            <p class="m-0"><em>Uttarakhand Technical University</em></p>
+          </div>
+          <div class="resume-item">
+            <h4>Intermediate (12th)</h4>
+            <h5>2017&nbsp; (74%)</h5>
+            <p class="m-0"><em>Govt Inter College Gadora, Uttarakhand Board</em></p>
+          </div>
+          <div class="resume-item">
+            <h4>High School</h4>
+            <h5>2015&nbsp; (77%)</h5>
+            <p class="m-0"><em>Govt Inter College Gadora, Uttarakhand Board</em></p>
+          </div>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="resume-title">Professional Experience</h3>
+          <div class="resume-item">
+            <h4>Software Developer</h4>
+            <h5>June (2024) – April (2025)</h5>
+            <p><em>NetDomains Pvt Ltd, Bengaluru, Karnataka</em></p>
+          </div>
+          <div class="resume-item">
+            <h4>Software Developer</h4>
+            <h5>June (2023) – February (2024)</h5>
+            <p><em>World IT Dimensional Solutions, Dehradun, Uttarakhand</em></p>
+          </div>
+          <div class="resume-item">
+            <h4>Experience with Large-scale Projects</h4>
+            Worked on complex projects including:
+            <ul class="mt-2">
+              <li>World Consumer Club (Paid Membership Program)</li>
+              <li>Flare Up Sky (Targeted Ad Platform for Businesses)</li>
+              <li>Learning Management System (LMS)</li>
+              <li>Real-Time Emergency Alert System</li>
+              <li>E-commerce Platform</li>
+              <li>News Websites</li>
+              <li>Customer Relationship Management (CRM) Software</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======= Projects Section ======= -->
+  <section id="portfolio" class="portfolio section-bg">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Projects</h2>
+        <p>Below are some of the projects I've worked on:</p>
+      </div>
+
+      <div>
+
+        <!-- Row 1 -->
+        <div class="row">
+
+          <!-- World Consumer Club — full card clickable -->
+          <div class="col-lg-4 col-md-6 mt-4">
+            <h5>World Consumer Club</h5>
+            <a href="https://worldconsumerclub.com" target="_blank" rel="noopener noreferrer"
+              title="Visit Live Site" style="display:block;text-decoration:none;">
+              <div class="portfolio-wrap"
+                  style="height:220px;display:flex;justify-content:center;align-items:center;
+                          background:white;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;"
+                  onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.12)'"
+                  onmouseleave="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                <img src="assets/img/worldconsumerclub.png" loading="lazy"
+                    style="object-fit:contain;max-width:100%;max-height:100%;" alt="World Consumer Club">
+              </div>
+            </a>
+            <ul>
+              <li>Paid Membership Program.</li>
+              <li>Payment Gateway integration.</li>
+              <li>Admin Panel for managing members and payments.</li>
+              <li>Built with Laravel and MySQL.</li>
+            </ul>
+          </div>
+
+          <!-- Flare Up Sky — full card clickable -->
+          <div class="col-lg-4 col-md-6 mt-4">
+            <h5>Flare Up Sky</h5>
+            <a href="https://flareupsky.com" target="_blank" rel="noopener noreferrer"
+              title="Visit Live Site" style="display:block;text-decoration:none;">
+              <div class="portfolio-wrap"
+                  style="height:220px;display:flex;justify-content:center;align-items:center;
+                          background:white;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;"
+                  onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.12)'"
+                  onmouseleave="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                <img src="assets/img/flareupsky.png" loading="lazy"
+                    style="object-fit:contain;max-width:100%;max-height:100%;" alt="Flare Up Sky">
+              </div>
+            </a>
+            <ul>
+              <li>Targeted Ad Platform for Businesses.</li>
+              <li>Payment Gateway integration.</li>
+              <li>Admin Panel for managing ads and businesses.</li>
+              <li>Built with Laravel and MySQL.</li>
+            </ul>
+          </div>
+
+          <!-- 2nd Alarm Project — full card clickable -->
+          <div class="col-lg-4 col-md-6 mt-4">
+            <h5>2<sup>nd</sup> Alarm Project</h5>
+            <a href="https://2ndalarmproject.org" target="_blank" rel="noopener noreferrer"
+              title="Visit Live Site" style="display:block;text-decoration:none;">
+              <div class="portfolio-wrap"
+                  style="height:220px;display:flex;justify-content:center;align-items:center;
+                          background:red;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;"
+                  onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.12)'"
+                  onmouseleave="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                <img src="assets/img/lms.svg" loading="lazy"
+                    style="object-fit:contain;max-width:100%;max-height:100%;" alt="2nd Alarm LMS">
+              </div>
+            </a>
+            <ul>
+              <li>A Learning Management System for first responders of Florida.</li>
+              <li>Enroll to courses and Progress Status are key features.</li>
+              <li>Built with Codeigniter and MySQL.</li>
+            </ul>
+          </div>
+
+        </div><!-- /row 1 -->
+
+        <!-- Row 2 -->
+        <div class="row">
+
+          <!-- Ease Alert — full card clickable -->
+          <div class="col-lg-4 col-md-6 mt-4 pt-4">
+            <h5>Ease Alert</h5>
+            <a href="https://events.easealert.com" target="_blank" rel="noopener noreferrer"
+              title="Visit Live Site" style="display:block;text-decoration:none;">
+              <div class="portfolio-wrap"
+                  style="height:220px;display:flex;justify-content:center;align-items:center;
+                          background:white;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;"
+                  onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.12)'"
+                  onmouseleave="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                <img src="https://events.easealert.com/public/assets/image/logo.png" loading="lazy"
+                    style="object-fit:contain;max-width:100%;max-height:100%;" alt="Ease Alert">
+              </div>
+            </a>
+            <ul>
+              <li>Real-Time emergency alert system.</li>
+              <li>Web-sockets for real-time notification.</li>
+              <li>Admin panel and role-based access control for different user types.</li>
+              <li>Built with Laravel and MySQL.</li>
+            </ul>
+          </div>
+
+          <!-- Daily Shop — NO live link → show popup on click -->
+          <div class="col-lg-4 col-md-6 mt-4 pt-4">
+            <h5>Daily Shop</h5>
+            <div onclick="showNoLiveModal('Daily Shop')"
+                 style="height:220px;display:flex;justify-content:center;align-items:center;
+                        background:white;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;
+                        position:relative;border:1px solid #eee;"
+                 onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.12)'"
+                 onmouseleave="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+              <img src="assets/img/logo.jpg" loading="lazy"
+                   style="object-fit:contain;max-width:100%;max-height:100%;" alt="Daily Shop">
+              <!-- "Not live" badge -->
+              <span style="position:absolute;top:10px;right:10px;background:#f59e0b;color:#fff;
+                           font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:12px;
+                           letter-spacing:.4px;">PRIVATE</span>
+            </div>
+            <ul>
+              <li>E-commerce website built with Laravel and MySQL.</li>
+              <li>Payment Gateway integration.</li>
+              <li>Feature of Cart and Favourite items.</li>
+              <li>Guest checkout and registered user checkout.</li>
+            </ul>
+          </div>
+
+          <!-- Easy GST — NO live link → show popup on click -->
+          <div class="col-lg-4 col-md-6 mt-4 pt-4">
+            <h5>Easy GST</h5>
+            <div onclick="showNoLiveModal('Easy GST')"
+                 style="height:220px;display:flex;justify-content:center;align-items:center;
+                        background:white;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;
+                        position:relative;border:1px solid #eee;"
+                 onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.12)'"
+                 onmouseleave="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+              <img src="assets/img/1.png" loading="lazy"
+                   style="object-fit:contain;max-width:100%;max-height:100%;" alt="Easy GST">
+              <span style="position:absolute;top:10px;right:10px;background:#f59e0b;color:#fff;
+                           font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:12px;
+                           letter-spacing:.4px;">PRIVATE</span>
+            </div>
+            <ul>
+              <li>A CRM system built with Laravel and MySQL.</li>
+              <li>Invoice generation, products management, order and stock management, monthly, yearly, and daily reports.</li>
+            </ul>
+          </div>
+
+        </div><!-- /row 2 -->
+
+        <!-- Row 3 -->
+        <div class="row">
+
+          <!-- Khabri Kaka — full card clickable -->
+          <div class="col-lg-4 col-md-6 mt-4 pt-4">
+            <h5>Khabri Kaka</h5>
+            <a href="https://khabrikaka.com/" target="_blank" rel="noopener noreferrer"
+              title="Visit Live Site" style="display:block;text-decoration:none;">
+              <div class="portfolio-wrap"
+                  style="height:220px;display:flex;justify-content:center;align-items:center;
+                          background:white;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;"
+                  onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.12)'"
+                  onmouseleave="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                <img src="https://khabrikaka.com/assets/img/logo-white.webp" loading="lazy"
+                    style="object-fit:contain;max-width:100%;max-height:100%;" alt="Khabri Kaka">
+              </div>
+            </a>
+            <ul>
+              <li>HTML, CSS, JavaScript, Bootstrap used for frontend.</li>
+              <li>Core PHP, MySQL used for Backend.</li>
+            </ul>
+          </div>
+
+          <!-- Uttaranchal Royal — full card clickable -->
+          <div class="col-lg-4 col-md-6 mt-4 pt-4">
+            <h5>Uttaranchal Royal</h5>
+            <a href="https://www.uttaranchalroyal.com" target="_blank" rel="noopener noreferrer"
+              title="Visit Live Site" style="display:block;text-decoration:none;">
+              <div class="portfolio-wrap"
+                  style="height:220px;display:flex;justify-content:center;align-items:center;
+                          background:white;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;"
+                  onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.12)'"
+                  onmouseleave="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                <img src="https://www.uttaranchalroyal.com/assets/img/logo.png" loading="lazy"
+                    style="object-fit:contain;max-width:100%;max-height:100%;" alt="Uttaranchal Royal">
+              </div>
+            </a>
+            <ul>
+              <li>HTML, CSS, JavaScript, Bootstrap used for frontend.</li>
+              <li>Core PHP, MySQL used for Backend.</li>
+            </ul>
+          </div>
+
+          <!-- Coming Soon -->
+          <div class="col-lg-4 col-md-6 mt-4 pt-4">
+            <h5>Coming Soon...</h5>
+            <div style="height:220px;display:flex;justify-content:center;align-items:center;background:white;">
+              <img src="assets/img/comingsoon.jpg" loading="lazy"
+                   style="object-fit:contain;max-width:100%;max-height:100%;" alt="Coming Soon">
+            </div>
+            <ul>
+              <li>More projects are in development and will be added soon.</li>
+              <li>Stay tuned for updates on my latest work!</li>
+            </ul>
+          </div>
+
+        </div><!-- /row 3 -->
+
       </div>
     </div>
-  </footer><!-- End  Footer -->
-
-  <!-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- <style>
-    /* ──────────────────────────────────────────────
-       RESET & BASE
-    ────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #f0f2f5;
-      min-height: 100vh;
-    }
-
-    /* ──────────────────────────────────────────────
-       CSS VARIABLES
-    ────────────────────────────────────────────── */
-    :root {
-      --uv-primary:       #0f172a;
-      --uv-accent:        #6366f1;
-      --uv-accent-light:  #818cf8;
-      --uv-accent-glow:   rgba(99,102,241,0.25);
-      --uv-surface:       #ffffff;
-      --uv-surface-2:     #f8fafc;
-      --uv-border:        #e2e8f0;
-      --uv-text:          #1e293b;
-      --uv-text-muted:    #64748b;
-      --uv-user-bubble:   #6366f1;
-      --uv-ai-bubble:     #f1f5f9;
-      --uv-radius-lg:     18px;
-      --uv-radius-sm:     10px;
-      --uv-shadow:        0 20px 60px rgba(0,0,0,0.15), 0 4px 16px rgba(0,0,0,0.08);
-      --uv-shadow-fab:    0 8px 32px rgba(99,102,241,0.45), 0 2px 8px rgba(0,0,0,0.15);
-      --widget-width:     380px;
-      --widget-height:    580px;
-    }
-
-    /* ──────────────────────────────────────────────
-       FLOATING ACTION BUTTON
-    ────────────────────────────────────────────── */
-    #uv-fab {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--uv-accent) 0%, #4f46e5 100%);
-      box-shadow: var(--uv-shadow-fab);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9998;
-      border: none;
-      outline: none;
-      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
-    }
-
-    #uv-fab:hover {
-      transform: scale(1.1);
-      box-shadow: 0 12px 40px rgba(99,102,241,0.55), 0 2px 8px rgba(0,0,0,0.2);
-    }
-
-    #uv-fab:active { transform: scale(0.95); }
-
-    #uv-fab img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid rgba(255,255,255,0.6);
-      pointer-events: none;
-    }
-
-    /* Pulse ring */
-    #uv-fab::before {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      border: 2px solid var(--uv-accent);
-      opacity: 0;
-      animation: uv-pulse 2.5s ease-out infinite;
-    }
-
-    @keyframes uv-pulse {
-      0%   { opacity: 0.7; transform: scale(1); }
-      100% { opacity: 0;   transform: scale(1.5); }
-    }
-
-    /* ──────────────────────────────────────────────
-       CHAT WINDOW
-    ────────────────────────────────────────────── */
-    #uv-chat-window {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      width: var(--widget-width);
-      height: var(--widget-height);
-      background: var(--uv-surface);
-      border-radius: 24px;
-      box-shadow: var(--uv-shadow);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      z-index: 9999;
-      border: 1px solid var(--uv-border);
-
-      opacity: 0;
-      transform: translateY(20px) scale(0.95);
-      transform-origin: bottom right;
-      pointer-events: none;
-      transition:
-        opacity 0.35s cubic-bezier(0.4,0,0.2,1),
-        transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-    }
-
-    #uv-chat-window.uv-open {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      pointer-events: all;
-    }
-
-    /* ──────────────────────────────────────────────
-       HEADER
-    ────────────────────────────────────────────── */
-    #uv-header {
-      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #312e81 100%);
-      padding: 18px 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    #uv-header::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(99,102,241,0.6), transparent);
-    }
-
-    #uv-avatar-wrap {
-      position: relative;
-      flex-shrink: 0;
-    }
-
-    #uv-header-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2.5px solid rgba(255,255,255,0.2);
-      display: block;
-    }
-
-    #uv-avatar-wrap::after {
-      content: '';
-      position: absolute;
-      bottom: 1px; right: 1px;
-      width: 11px; height: 11px;
-      background: #22c55e;
-      border-radius: 50%;
-      border: 2px solid #0f172a;
-    }
-
-    #uv-header-info { flex: 1; min-width: 0; }
-
-    #uv-header-name {
-      font-size: 17px;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: 0.02em;
-      line-height: 1.2;
-    }
-
-    #uv-header-status {
-      font-size: 12px;
-      color: rgba(255,255,255,0.55);
-      margin-top: 2px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    #uv-header-status span {
-      width: 6px; height: 6px;
-      background: #22c55e;
-      border-radius: 50%;
-      display: inline-block;
-      animation: uv-blink 2s ease-in-out infinite;
-    }
-
-    @keyframes uv-blink {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.3; }
-    }
-
-    /* Header action buttons (refresh + close) */
-    .uv-header-btn {
-      background: rgba(255,255,255,0.1);
-      border: none;
-      color: rgba(255,255,255,0.7);
-      cursor: pointer;
-      width: 34px; height: 34px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: background 0.2s, color 0.2s, transform 0.2s;
-    }
-
-    .uv-header-btn:hover {
-      background: rgba(255,255,255,0.2);
-      color: #ffffff;
-    }
-
-    #uv-refresh-btn:hover { transform: rotate(180deg); }
-    #uv-close-btn:hover   { transform: rotate(90deg); }
-
-    .uv-header-btn svg { display: block; }
-
-    /* ──────────────────────────────────────────────
-       CONFIRM BANNER (new chat confirmation)
-    ────────────────────────────────────────────── */
-    #uv-confirm-bar {
-      display: none;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 10px 16px;
-      background: #fefce8;
-      border-bottom: 1px solid #fde68a;
-      font-size: 13px;
-      color: #78350f;
-      flex-shrink: 0;
-      animation: uv-slide-down 0.25s ease both;
-    }
-
-    #uv-confirm-bar.uv-visible { display: flex; }
-
-    @keyframes uv-slide-down {
-      from { opacity: 0; transform: translateY(-8px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    #uv-confirm-bar .uv-confirm-text {
-      flex: 1;
-      font-weight: 600;
-    }
-
-    #uv-confirm-bar .uv-confirm-text small {
-      display: block;
-      font-weight: 400;
-      font-size: 11.5px;
-      color: #92400e;
-      margin-top: 1px;
-    }
-
-    .uv-confirm-actions { display: flex; gap: 6px; }
-
-    .uv-confirm-btn {
-      padding: 5px 13px;
-      border-radius: 20px;
-      border: none;
-      cursor: pointer;
-      font-size: 12.5px;
-      font-weight: 600;
-      font-family: 'DM Sans', sans-serif;
-      transition: transform 0.15s, opacity 0.15s;
-    }
-
-    .uv-confirm-btn:active { transform: scale(0.95); }
-
-    #uv-confirm-yes {
-      background: #ef4444;
-      color: #fff;
-    }
-
-    #uv-confirm-yes:hover { opacity: 0.88; }
-
-    #uv-confirm-no {
-      background: rgba(120,53,15,0.12);
-      color: #78350f;
-    }
-
-    #uv-confirm-no:hover { background: rgba(120,53,15,0.2); }
-
-    /* ──────────────────────────────────────────────
-       MESSAGES AREA
-    ────────────────────────────────────────────── */
-    #uv-messages {
-      flex: 1;
-      overflow-y: auto;
-      padding: 20px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      background: var(--uv-surface-2);
-      scroll-behavior: smooth;
-    }
-
-    #uv-messages::-webkit-scrollbar { width: 4px; }
-    #uv-messages::-webkit-scrollbar-track { background: transparent; }
-    #uv-messages::-webkit-scrollbar-thumb {
-      background: var(--uv-border);
-      border-radius: 4px;
-    }
-
-    .uv-msg-row {
-      display: flex;
-      align-items: flex-end;
-      gap: 8px;
-      animation: uv-msg-in 0.3s cubic-bezier(0.34,1.56,0.64,1) both;
-    }
-
-    @keyframes uv-msg-in {
-      from { opacity: 0; transform: translateY(12px) scale(0.96); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    .uv-msg-row.uv-user { flex-direction: row-reverse; }
-
-    .uv-row-avatar {
-      width: 30px; height: 30px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
-      border: 1.5px solid var(--uv-border);
-    }
-
-    .uv-msg-row.uv-user .uv-row-avatar { display: none; }
-
-    .uv-bubble {
-      max-width: 72%;
-      padding: 11px 15px;
-      border-radius: var(--uv-radius-lg);
-      font-size: 14.5px;
-      line-height: 1.55;
-      word-break: break-word;
-      position: relative;
-    }
-
-    .uv-msg-row.uv-ai .uv-bubble {
-      background: var(--uv-surface);
-      color: var(--uv-text);
-      border-bottom-left-radius: 4px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-      border: 1px solid var(--uv-border);
-    }
-
-    .uv-msg-row.uv-user .uv-bubble {
-      background: linear-gradient(135deg, var(--uv-accent) 0%, #4f46e5 100%);
-      color: #ffffff;
-      border-bottom-right-radius: 4px;
-      box-shadow: 0 4px 12px rgba(99,102,241,0.3);
-    }
-
-    .uv-bubble-time {
-      display: block;
-      font-size: 10.5px;
-      margin-top: 5px;
-      opacity: 0.55;
-      text-align: right;
-    }
-
-    .uv-msg-row.uv-ai .uv-bubble-time { text-align: left; }
-
-    /* Restored messages (no bounce animation) */
-    .uv-msg-row.uv-restored {
-      animation: uv-msg-fade 0.25s ease both;
-    }
-
-    @keyframes uv-msg-fade {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    /* History divider */
-    .uv-history-divider {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 4px 0 8px;
-      animation: uv-msg-fade 0.3s ease both;
-    }
-
-    .uv-history-divider::before,
-    .uv-history-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--uv-border);
-    }
-
-    .uv-history-divider span {
-      font-size: 11px;
-      color: var(--uv-text-muted);
-      white-space: nowrap;
-      font-weight: 500;
-    }
-
-    /* ── Typing indicator ── */
-    #uv-typing-row {
-      display: none;
-      align-items: flex-end;
-      gap: 8px;
-      animation: uv-msg-in 0.3s ease both;
-    }
-
-    #uv-typing-row.uv-visible { display: flex; }
-
-    .uv-typing-bubble {
-      background: var(--uv-surface);
-      border: 1px solid var(--uv-border);
-      border-radius: var(--uv-radius-lg);
-      border-bottom-left-radius: 4px;
-      padding: 13px 18px;
-      display: flex;
-      gap: 5px;
-      align-items: center;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    }
-
-    .uv-typing-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--uv-accent-light);
-      animation: uv-dot-bounce 1.2s ease-in-out infinite;
-    }
-
-    .uv-typing-dot:nth-child(2) { animation-delay: 0.18s; }
-    .uv-typing-dot:nth-child(3) { animation-delay: 0.36s; }
-
-    @keyframes uv-dot-bounce {
-      0%, 60%, 100% { transform: translateY(0);  opacity: 0.5; }
-      30%            { transform: translateY(-6px); opacity: 1;   }
-    }
-
-    /* ──────────────────────────────────────────────
-       INPUT AREA
-    ────────────────────────────────────────────── */
-    #uv-input-area {
-      padding: 14px 16px;
-      background: var(--uv-surface);
-      border-top: 1px solid var(--uv-border);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-
-    #uv-input {
-      flex: 1;
-      border: 1.5px solid var(--uv-border);
-      border-radius: 50px;
-      padding: 11px 18px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      color: var(--uv-text);
-      background: var(--uv-surface-2);
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      resize: none;
-    }
-
-    #uv-input::placeholder { color: var(--uv-text-muted); }
-
-    #uv-input:focus {
-      border-color: var(--uv-accent);
-      box-shadow: 0 0 0 3px var(--uv-accent-glow);
-      background: #ffffff;
-    }
-
-    #uv-send-btn {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--uv-accent) 0%, #4f46e5 100%);
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
-      box-shadow: 0 4px 12px rgba(99,102,241,0.35);
-    }
-
-    #uv-send-btn:hover:not(:disabled) {
-      transform: scale(1.08);
-      box-shadow: 0 6px 16px rgba(99,102,241,0.45);
-    }
-
-    #uv-send-btn:active:not(:disabled) { transform: scale(0.94); }
-
-    #uv-send-btn:disabled {
-      opacity: 0.45;
-      cursor: not-allowed;
-      box-shadow: none;
-    }
-
-    #uv-send-btn svg { display: block; }
-
-    /* ──────────────────────────────────────────────
-       POWERED-BY FOOTER
-    ────────────────────────────────────────────── */
-    #uv-footer {
-      text-align: center;
-      font-size: 10.5px;
-      color: var(--uv-text-muted);
-      padding: 7px 0 9px;
-      background: var(--uv-surface);
-      border-top: 1px solid var(--uv-border);
-      letter-spacing: 0.01em;
-      flex-shrink: 0;
-    }
-
-    #uv-footer strong { color: var(--uv-accent); }
-
-    /* ──────────────────────────────────────────────
-       MOBILE RESPONSIVE
-    ────────────────────────────────────────────── */
-    @media (max-width: 480px) {
-      :root {
-        --widget-width: 100vw;
-        /* --widget-height: 100dvh; */
-      }
-
-      #uv-chat-window {
-        bottom: 0; right: 0;
-        left: 0;
-        border-radius: 0;
-        border: none;
-        transform-origin: bottom center;
-        position: fixed;       /* keep fixed */
-        /* height set dynamically by JS */
-      }
-
-      #uv-fab {
-        bottom: 20px;
-        right: 20px;
-      }
-    }
-  </style>
-
-
-<!-- FAB -->
+  </section>
+
+  <!-- ======= Contact Section ======= -->
+  <!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Feel free to contact me anytime.</p>
+    </div>
+
+    <div class="row" data-aos="fade-in">
+
+      <!-- Card 1: Contact Info -->
+<div class="col-lg-5 d-flex align-items-stretch">
+  <div class="info" style="width:100%;">
+
+    <div class="address" style="cursor:default;">
+      <i class="bi bi-geo-alt"></i>
+      <h4>Location:</h4>
+      <p>Dehradun, Uttarakhand, India</p>
+    </div>
+
+    <div class="email" style="cursor:pointer;"
+         onclick="window.location.href='mailto:yogipanwar173@gmail.com'"
+         title="Send email">
+      <i class="bi bi-envelope"></i>
+      <h4>Email:</h4>
+      <p style="text-decoration:underline dotted;text-underline-offset:2px;">yogipanwar173@gmail.com</p>
+    </div>
+
+    <div class="phone" style="cursor:pointer;"
+         onclick="window.location.href='tel:8126935236'"
+         title="Call now">
+      <i class="bi bi-phone"></i>
+      <h4>Call:</h4>
+      <p>8126935236</p>
+    </div>
+
+    <div class="phone" style="cursor:pointer;"
+         onclick="window.open('https://github.com/yuvrajpanwar','_blank')"
+         title="Visit GitHub Profile">
+      <i class="bx bxl-github" style="font-size:1.4rem;"></i>
+      <h4>GitHub:</h4>
+      <p style="text-decoration:underline dotted;text-underline-offset:2px;">github.com/yuvrajpanwar</p>
+    </div>
+
+    <div class="phone" style="cursor:pointer;"
+         onclick="window.open('https://www.linkedin.com/in/yuvraj-singh-panwar-a9a590278/','_blank')"
+         title="Visit LinkedIn Profile">
+      <i class="bx bxl-linkedin" style="font-size:1.4rem;"></i>
+      <h4>LinkedIn:</h4>
+      <p style="text-decoration:underline dotted;text-underline-offset:2px;">Yuvraj Singh Panwar</p>
+    </div>
+
+    <div class="phone" style="cursor:pointer;"
+         onclick="window.open('https://wa.me/8126935236','_blank')"
+         title="Chat on WhatsApp">
+      <i class="bx bxl-whatsapp" style="font-size:1.4rem;"></i>
+      <h4>WhatsApp:</h4>
+      <p>+91 8126935236</p>
+    </div>
+
+  </div>
+</div>
+
+      <!-- Card 2: Quick Questions → UV Chat -->
+      <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+        <div class="info" style="width:100%;padding:2rem;">
+
+          <!-- Header -->
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:1.25rem;">
+            <div style="position:relative;flex-shrink:0;">
+              <img src="assets/img/uv.jpg" alt="UV"
+                   style="width:46px;height:46px;border-radius:50%;object-fit:cover;
+                          border:2px solid #149ddd;">
+              <span style="position:absolute;bottom:1px;right:1px;width:11px;height:11px;
+                           background:#22c55e;border-radius:50%;border:2px solid #fff;"></span>
+            </div>
+            <div>
+              <p style="padding: 0 0 10px 10px !important;margin:0;font-weight:700;font-size:1rem;color:#173b6c;">Chat with UV</p>
+              <p style="padding: 0 0 10px 10px !important;margin:0;font-size:0.8rem;color:#6c757d;">
+                Yuvraj's AI assistant · Usually replies instantly
+              </p>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div style="border-top:1px solid #e9ecef;margin-bottom:1.25rem;"></div>
+
+          <!-- Intro text -->
+          <p style="padding: 0 0 10px 10px !important;font-size:0.88rem;color:#6c757d;margin-bottom:1rem;line-height:1.5;">
+            Have a quick question? Click any topic below and UV will answer
+            it for you right away — no typing needed.
+          </p>
+
+          <!-- Quick question chips -->
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+
+            <button class="uv-quick-btn"
+                    onclick="triggerUVChat('Where are you currently working?')">
+              <i class="bi bi-briefcase" style="font-size:.85rem;"></i>
+              Where do you work currently?
+            </button>
+
+            <button class="uv-quick-btn"
+                    onclick="triggerUVChat('Are you available for a call this Monday?')">
+              <i class="bi bi-telephone" style="font-size:.85rem;"></i>
+              Call me on Monday?
+            </button>
+
+            <button class="uv-quick-btn"
+                    onclick="triggerUVChat('What is your total work experience?')">
+              <i class="bi bi-clock-history" style="font-size:.85rem;"></i>
+              What is your work experience?
+            </button>
+
+            <button class="uv-quick-btn"
+                    onclick="triggerUVChat('What technologies and tech stack do you specialize in?')">
+              <i class="bi bi-code-slash" style="font-size:.85rem;"></i>
+              What is your tech stack?
+            </button>
+
+            <button class="uv-quick-btn"
+                    onclick="triggerUVChat('Are you open to relocate for a job?')">
+              <i class="bi bi-geo-alt" style="font-size:.85rem;"></i>
+              Are you open to relocate?
+            </button>
+
+            <button class="uv-quick-btn"
+                    onclick="triggerUVChat('What is your expected salary or CTC?')">
+              <i class="bi bi-currency-rupee" style="font-size:.85rem;"></i>
+              What is your expected CTC?
+            </button>
+
+            <button class="uv-quick-btn"
+                    onclick="triggerUVChat('Can you share your GitHub profile or any code samples?')">
+              <i class="bi bi-github" style="font-size:.85rem;"></i>
+              Show me your GitHub
+            </button>
+
+            <button class="uv-quick-btn"
+                    onclick="triggerUVChat('Are you available to join immediately or what is your notice period?')">
+              <i class="bi bi-calendar-check" style="font-size:.85rem;"></i>
+              What is your notice period?
+            </button>
+
+            <button class="uv-quick-btn"
+                    onclick="triggerUVChat('Tell me about your most challenging project.')">
+              <i class="bi bi-trophy" style="font-size:.85rem;"></i>
+              Most challenging project?
+            </button>
+
+            <button class="uv-quick-btn"
+                    onclick="triggerUVChat('Do you have experience working in a team or agile environment?')">
+              <i class="bi bi-people" style="font-size:.85rem;"></i>
+              Team / Agile experience?
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ── Quick-chat styles (add to your <style> block) ── -->
+<style>
+.uv-quick-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0f8ff;
+  color: #173b6c;
+  border: 1.5px solid #b8d9f5;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .18s ease, border-color .18s ease, transform .15s ease;
+  white-space: nowrap;
+}
+.uv-quick-btn:hover {
+  background: #149ddd;
+  color: #fff;
+  border-color: #149ddd;
+  transform: translateY(-2px);
+}
+.uv-quick-btn:active {
+  transform: translateY(0);
+}
+</style>
+
+
+<!-- ── triggerUVChat() — add to your <script> block ── -->
+<script>
+function triggerUVChat(message) {
+
+  // Step 1 (0ms): open the chat window if it isn't already open
+  var fab        = document.getElementById('uv-fab');
+  var chatWindow = document.getElementById('uv-chat-window');
+  var input      = document.getElementById('uv-input');
+  var sendBtn    = document.getElementById('uv-send-btn');
+
+  if (chatWindow && !chatWindow.classList.contains('uv-open')) {
+    if (fab) fab.click();
+  }
+
+  // Step 2 (500ms): fill the input field
+  setTimeout(function () {
+    if (!input) return;
+    input.value = message;
+    // fire an input event so any existing listeners (e.g. enable send button) pick it up
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+  }, 800);
+
+  // Step 3 (1000ms): click the send button
+  setTimeout(function () {
+    if (!sendBtn) return;
+    sendBtn.removeAttribute('disabled');   // ensure it's enabled before clicking
+    sendBtn.click();
+  }, 1000);
+}
+</script>
+
+</main>
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+  <div class="copyright">
+      &copy; Copyright <strong><span id="year"></span> Yuvraj</strong>
+  </div>
+
+  <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     "NOT LIVE" MODAL — for projects without a public URL
+═══════════════════════════════════════════════════════════ -->
+<div id="no-live-modal"
+     style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);
+            z-index:99999;align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:12px;padding:2rem;max-width:420px;
+              width:90%;box-shadow:0 20px 60px rgba(0,0,0,.3);text-align:center;
+              animation:modal-pop .25s ease;">
+    <div style="font-size:2.5rem;margin-bottom:.5rem;">🔒</div>
+    <h4 id="modal-project-name" style="margin:0 0 .75rem;color:#1a1a2e;font-size:1.2rem;"></h4>
+    <p style="color:#555;font-size:.95rem;line-height:1.6;margin-bottom:1.5rem;">
+      This project is currently <strong>not publicly live</strong> — it was built for a
+      private client. You're welcome to explore my other live projects or check the
+      source code on my GitHub profile.
+    </p>
+    <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://github.com/yuvrajpanwar" target="_blank"
+         style="background:#24292e;color:#fff;padding:.55rem 1.25rem;border-radius:6px;
+                text-decoration:none;font-weight:600;font-size:.9rem;cursor:pointer;
+                display:inline-flex;align-items:center;gap:6px;">
+        <i class="bx bxl-github" style="font-size:1.1rem;"></i> View GitHub
+      </a>
+      <button onclick="closeNoLiveModal()"
+              style="background:#f0f0f0;color:#333;padding:.55rem 1.25rem;border-radius:6px;
+                     border:none;font-weight:600;font-size:.9rem;cursor:pointer;">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- FAB chat button -->
 <button id="uv-fab" aria-label="Open UV chat" title="Chat with UV">
-  <img
-    src="/portfolio/assets/img/uv.jpg"
-    alt="UV"
-    onerror="this.style.display='none'; this.parentElement.innerHTML += '<svg width=\'28\' height=\'28\' fill=\'none\' viewBox=\'0 0 24 24\'><path fill=\'%23fff\' d=\'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z\'/></svg>'"
-  />
+  <img src="assets/img/uv.jpg" alt="UV"
+       onerror="this.style.display='none'; this.parentElement.innerHTML += '<svg width=\'28\' height=\'28\' fill=\'none\' viewBox=\'0 0 24 24\'><path fill=\'%23fff\' d=\'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z\'/></svg>'"/>
 </button>
 
 <!-- Chat Window -->
 <div id="uv-chat-window" role="dialog" aria-label="UV Chat" aria-modal="true">
 
-  <!-- Header -->
   <div id="uv-header">
     <div id="uv-avatar-wrap">
-      <img id="uv-header-avatar" src="/portfolio/assets/img/uv.jpg" alt="UV Avatar" />
+      <img id="uv-header-avatar" src="assets/img/uv.jpg" alt="UV Avatar" />
     </div>
     <div id="uv-header-info">
       <div id="uv-header-name">UV</div>
       <div id="uv-header-status">Online <span></span></div>
     </div>
-
-    <!-- Refresh button (left of close) -->
     <button id="uv-refresh-btn" class="uv-header-btn" aria-label="New chat" title="Start new chat">
       <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
         <path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
@@ -1166,8 +850,6 @@
               d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/>
       </svg>
     </button>
-
-    <!-- Close button -->
     <button id="uv-close-btn" class="uv-header-btn" aria-label="Close chat">
       <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
         <path stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M18 6 6 18M6 6l12 12"/>
@@ -1175,7 +857,6 @@
     </button>
   </div>
 
-  <!-- Confirm bar (hidden by default, shown on refresh click) -->
   <div id="uv-confirm-bar" role="alert">
     <div class="uv-confirm-text">
       Start a new chat?
@@ -1187,11 +868,9 @@
     </div>
   </div>
 
-  <!-- Messages -->
   <div id="uv-messages" role="log" aria-live="polite" aria-label="Chat messages">
-    <!-- Typing indicator (always last child via JS) -->
     <div id="uv-typing-row">
-      <img class="uv-row-avatar" src="/portfolio/assets/img/uv.jpg" alt="UV" />
+      <img class="uv-row-avatar" src="assets/img/uv.jpg" alt="UV" />
       <div class="uv-typing-bubble">
         <div class="uv-typing-dot"></div>
         <div class="uv-typing-dot"></div>
@@ -1200,16 +879,9 @@
     </div>
   </div>
 
-  <!-- Input Area -->
   <div id="uv-input-area">
-    <input
-      type="text"
-      id="uv-input"
-      placeholder="Message UV…"
-      autocomplete="off"
-      maxlength="1000"
-      aria-label="Type a message"
-    />
+    <input type="text" id="uv-input" placeholder="Message UV…"
+           autocomplete="off" maxlength="1000" aria-label="Type a message"/>
     <button id="uv-send-btn" aria-label="Send message" disabled>
       <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
         <path fill="#fff" d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"/>
@@ -1217,404 +889,87 @@
     </button>
   </div>
 
-  <!-- Footer -->
   <div id="uv-footer">
     Ask anything about <strong>Yuvraj</strong>
   </div>
 
 </div>
 
-<!-- ══════════════════════════════════════
-     JAVASCRIPT
-══════════════════════════════════════ -->
-<script>
-(function () {
-  'use strict';
 
-  // ── DOM refs ──────────────────────────────────────────────
-  const fab         = document.getElementById('uv-fab');
-  const chatWindow  = document.getElementById('uv-chat-window');
-  const closeBtn    = document.getElementById('uv-close-btn');
-  const refreshBtn  = document.getElementById('uv-refresh-btn');
-  const confirmBar  = document.getElementById('uv-confirm-bar');
-  const confirmYes  = document.getElementById('uv-confirm-yes');
-  const confirmNo   = document.getElementById('uv-confirm-no');
-  const messagesEl  = document.getElementById('uv-messages');
-  const inputEl     = document.getElementById('uv-input');
-  const sendBtn     = document.getElementById('uv-send-btn');
-  const typingRow   = document.getElementById('uv-typing-row');
+<!-- ═══════════════════════════════════════════════
+     ENHANCEMENT STYLES  (paste inside <style> or
+     at the bottom of your main CSS file)
+═══════════════════════════════════════════════ -->
+<style>
+/* Smooth scrolling */
+html { scroll-behavior: smooth; }
 
-  // ── Config ────────────────────────────────────────────────
-  const ENDPOINT         = 'https://dailyorbit.in/chatbot/message';
-  const HISTORY_ENDPOINT = 'https://dailyorbit.in/chatbot/history';
-  const RESET_ENDPOINT   = 'https://dailyorbit.in/chatbot/reset';
-  const AI_AVATAR        = "/portfolio/assets/img/uv.jpg";
-  const GREETING         = "Heyy! mera naam hai UV 😎 \ntumhara naam kya hai?";
-  const CSRF_TOKEN       = document.querySelector('meta[name="csrf-token"]')?.content ?? '';
-
-  // ── State ─────────────────────────────────────────────────
-  let isOpen        = false;
-  let isWaiting     = false;
-  let greetingDone  = false;
-  let confirmActive = false;
-  let sessionToken  = localStorage.getItem('uv_chat_session') ?? null;
-
-  // ── Helpers ───────────────────────────────────────────────
-  function getTime() {
-    return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  }
-
-  function formatTime(isoString) {
-    if (!isoString) return getTime();
-    try {
-      return new Date(isoString).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    } catch {
-      return getTime();
-    }
-  }
-
-  function scrollToBottom(instant = false) {
-    messagesEl.appendChild(typingRow);
-    if (instant) {
-      messagesEl.style.scrollBehavior = 'auto';
-      messagesEl.scrollTop = messagesEl.scrollHeight;
-      messagesEl.style.scrollBehavior = '';
-    } else {
-      messagesEl.scrollTop = messagesEl.scrollHeight;
-    }
-  }
-
-  /**
-   * @param {'ai'|'user'} who
-   * @param {string} text   — may contain HTML (links from server)
-   * @param {string} time   — formatted time string
-   * @param {boolean} restored — if true, use fade-in instead of bounce
-   */
-  function appendMessage(who, text, time = null, restored = false) {
-    const row = document.createElement('div');
-    row.className = `uv-msg-row uv-${who}${restored ? ' uv-restored' : ''}`;
-
-    const avatarHTML = who === 'ai'
-      ? `<img class="uv-row-avatar" src="${AI_AVATAR}" alt="UV" />`
-      : '';
-
-    const displayTime = time ?? getTime();
-
-    // Server replies may contain anchor tags — render as HTML.
-    // User messages are plain text — escape to prevent XSS.
-    const contentHTML = who === 'user'
-      ? escapeHTML(text).replace(/\n/g, '<br>')
-      : text.replace(/\n/g, '<br>');
-
-    row.innerHTML = `
-      ${avatarHTML}
-      <div class="uv-bubble">
-        ${contentHTML}
-        <span class="uv-bubble-time">${displayTime}</span>
-      </div>
-    `;
-
-    messagesEl.insertBefore(row, typingRow);
-    scrollToBottom(restored);
-  }
-
-  function escapeHTML(str) {
-    return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#039;');
-  }
-
-  function showTyping() {
-    typingRow.classList.add('uv-visible');
-    scrollToBottom();
-  }
-
-  function hideTyping() {
-    typingRow.classList.remove('uv-visible');
-  }
-
-  function setWaiting(state) {
-    isWaiting        = state;
-    sendBtn.disabled = state;
-    inputEl.disabled = state;
-  }
-
-  function insertDivider(label) {
-    const div = document.createElement('div');
-    div.className = 'uv-history-divider uv-restored';
-    div.innerHTML = `<span>${label}</span>`;
-    messagesEl.insertBefore(div, typingRow);
-  }
-
-  // ── Confirm bar ───────────────────────────────────────────
-  function showConfirm() {
-    confirmActive = true;
-    confirmBar.classList.add('uv-visible');
-  }
-
-  function hideConfirm() {
-    confirmActive = false;
-    confirmBar.classList.remove('uv-visible');
-  }
-
-  // ── History restore ───────────────────────────────────────
- async function restoreHistory() {
-  if (!sessionToken) {
-    // No session yet → nothing to restore
-    return;
-  }
-
-  try {
-    const res = await fetch(HISTORY_ENDPOINT, {
-      headers: {
-        'Accept':           'application/json',
-        'X-Requested-With': 'XMLHttpRequest',
-        'X-Chat-Session':   sessionToken,        // ← THIS WAS MISSING
-      }
-    });
-
-    if (!res.ok) return;
-
-    const data = await res.json();
-    const messages = data.messages ?? [];
-
-    if (messages.length === 0) return;
-
-    greetingDone = true;
-    insertDivider('Previous conversation');
-
-    messages.forEach(msg => {
-      const who = msg.role === 'assistant' ? 'ai' : 'user';
-      appendMessage(who, msg.content, formatTime(msg.sent_at), true);
-    });
-
-  } catch (err) {
-    console.warn('[UV Chatbot] History restore failed:', err);
+/* Hero background — mobile responsive */
+#hero {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-attachment: scroll !important; /* fixes iOS fixed bg bug */
+}
+@media (max-width: 768px) {
+  #hero {
+    background-attachment: scroll !important;
+    background-position: top center !important;
+    background-size: cover !important;
+    min-height: 100svh;
   }
 }
 
-  // ── Reset session ─────────────────────────────────────────
-  async function resetSession() {
-    hideConfirm();
-    setWaiting(true);
+/* Pulse dot animation for "open to work" badge */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: .5; transform: scale(1.4); }
+}
 
-    try {
-      await fetch(RESET_ENDPOINT, {
-          method:  'POST',
-          headers: {
-              'Content-Type':     'application/json',
-              'Accept':           'application/json',
-              'X-Requested-With': 'XMLHttpRequest',
-              'X-Chat-Session':   sessionToken ?? '',   // ← add this
-          },
-          // credentials: 'same-origin',   ← remove this line
-      });
+/* Modal pop animation */
+@keyframes modal-pop {
+  from { transform: scale(.9); opacity: 0; }
+  to   { transform: scale(1);  opacity: 1; }
+}
 
-      // ← add these two lines after the fetch (before UI clear)
-      sessionToken = null;
-      localStorage.removeItem('uv_chat_session');
-    } catch (err) {
-      console.warn('[UV Chatbot] Reset request failed:', err);
-    }
+/* Portfolio wrap — ensure overflow hidden for hover lift */
+.portfolio-wrap {
+  overflow: hidden;
+}
 
-    // Clear UI regardless of server response
-    // Remove all message rows (keep typing row)
-    [...messagesEl.querySelectorAll('.uv-msg-row, .uv-history-divider')].forEach(el => el.remove());
+/* Contact info hover highlight */
+.contact .info .email:hover,
+.contact .info .phone:hover {
+  background: rgba(20,157,221,.06);
+  border-radius: 6px;
+  transition: background .2s;
+}
+</style>
 
-    greetingDone = false;
-    setWaiting(false);
 
-    // Show fresh greeting
-    greetingDone = true;
-    setTimeout(() => appendMessage('ai', GREETING), 200);
-
-    inputEl.focus();
-  }
-
-  // ── Open / Close ──────────────────────────────────────────
-  function openChat() {
-    if (isOpen) return;
-    isOpen = true;
-    chatWindow.classList.add('uv-open');
-    inputEl.focus();
-
-    if (!greetingDone) {
-      greetingDone = true;
-      setTimeout(() => appendMessage('ai', GREETING), 350);
-    }
-  }
-
-  function closeChat() {
-    if (!isOpen) return;
-    isOpen = false;
-    chatWindow.classList.remove('uv-open');
-    hideConfirm();
-  }
-
-  // ── Send message ──────────────────────────────────────────
-  async function sendMessage() {
-    const text = inputEl.value.trim();
-    if (!text || isWaiting) return;
-
-    if (confirmActive) hideConfirm();
-
-    inputEl.value = '';
-    sendBtn.disabled = true;
-
-    appendMessage('user', text);
-    setWaiting(true);
-    showTyping();
-
-    try {
-      const response = await fetch(ENDPOINT, {
-          method:  'POST',
-          headers: {
-              'Content-Type':     'application/json',
-              'Accept':           'application/json',
-              'X-Requested-With': 'XMLHttpRequest',
-              'X-Chat-Session':   sessionToken ?? '',   // ← add this
-          },
-          // credentials: 'same-origin',   ← remove this line
-          body: JSON.stringify({ message: text }),
-      });
-
-      const data = await response.json();
-
-      // ← add this block
-      if (data.session_token) {
-          sessionToken = data.session_token;
-          localStorage.setItem('uv_chat_session', sessionToken);
-      }
-      hideTyping();
-
-      if (!response.ok) {
-        appendMessage('ai', data.reply ?? 'Something went wrong. Please try again.');
-        return;
-      }
-
-      appendMessage('ai', data.reply ?? "I didn't catch that. Could you try again?");
-
-    } catch (err) {
-      hideTyping();
-      appendMessage('ai', 'Network error. Please check your connection and try again.');
-      console.error('[UV Chatbot]', err);
-    } finally {
-      setWaiting(false);
-    }
-  }
-
-  // ── Event Listeners ───────────────────────────────────────
-  fab.addEventListener('click', openChat);
-  closeBtn.addEventListener('click', closeChat);
-
-  refreshBtn.addEventListener('click', () => {
-    if (confirmActive) {
-      hideConfirm();
-    } else {
-      showConfirm();
-    }
-  });
-
-  confirmYes.addEventListener('click', resetSession);
-  confirmNo.addEventListener('click', hideConfirm);
-
-  sendBtn.addEventListener('click', sendMessage);
-
-  inputEl.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
-    }
-  });
-
-  inputEl.addEventListener('focus', () => {
-    // Small delay lets the keyboard finish opening
-    setTimeout(() => {
-      inputEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-      syncToViewport();
-      scrollToBottom(true);
-    }, 320);
-  });
-
-  inputEl.addEventListener('input', () => {
-    sendBtn.disabled = inputEl.value.trim().length === 0 || isWaiting;
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if (confirmActive) { hideConfirm(); return; }
-      if (isOpen) closeChat();
-    }
-  });
-
-  // ── On page load: restore history ────────────────────────
-  document.addEventListener('DOMContentLoaded', () => {
-    restoreHistory();
-  });
-
-  // ── Visual Viewport resize handler (mobile keyboard fix) ──
-  function syncToViewport() {
-    if (window.innerWidth > 480) return; // desktop: do nothing
-    const vv = window.visualViewport;
-    if (!vv) return;
-
-    // The viewport shifts up by the keyboard height.
-    // We clamp the window to match the visual viewport size.
-    chatWindow.style.height = vv.height + 'px';
-    chatWindow.style.top    = vv.offsetTop + 'px';
-    chatWindow.style.bottom = 'auto';
-  }
-
-  if (window.visualViewport) {
-    window.visualViewport.addEventListener('resize', syncToViewport);
-    window.visualViewport.addEventListener('scroll', syncToViewport);
-  }
-
-  // Also reset when keyboard closes / orientation changes
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 480) {
-      chatWindow.style.height = '';
-      chatWindow.style.top    = '';
-      chatWindow.style.bottom = '';
-    }
-  });
-
-})();
+<!-- ═══════════════════════════════════════════
+     ENHANCEMENT SCRIPTS
+═══════════════════════════════════════════ -->
+<script>
+/* ── "Not Live" modal helpers ── */
+function showNoLiveModal(name) {
+  document.getElementById('modal-project-name').textContent = name;
+  var m = document.getElementById('no-live-modal');
+  m.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeNoLiveModal() {
+  document.getElementById('no-live-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+/* Close modal on backdrop click */
+document.getElementById('no-live-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeNoLiveModal();
+});
+/* Close on Escape key */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeNoLiveModal();
+});
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   <!-- Vendor JS Files -->
@@ -1630,6 +985,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/chatbot.js"></script>
 
 </body>
 
