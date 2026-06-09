@@ -20,7 +20,7 @@
   const HISTORY_ENDPOINT = 'https://dailyorbit.in/chatbot/history';
   const RESET_ENDPOINT   = 'https://dailyorbit.in/chatbot/reset';
   const AI_AVATAR        = "assets/img/uv.jpg";
-  const GREETING         = "Heyy! mera naam hai UV 😎 \ntumhara naam kya hai?";
+  const GREETING = "Heyy! I'm UV 😎\nAsk me anything about my work, projects, or experience.";
   const CSRF_TOKEN       = document.querySelector('meta[name="csrf-token"]')?.content ?? '';
 
   // ── State ─────────────────────────────────────────────────
